@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Game {
-    List<model.Player> Players;
+    List<Model.Player> Players;
     String NemesisName;
     int GraveholdHP;
     int NemesisHP;
@@ -15,7 +15,7 @@ public class Game {
     Boolean HarderVariant;
     String notes;
 
-    public Game(List<model.Player> players, String nemesisName, int graveholdHP, int nemesisHP, Boolean isWon, String reasonForOutcome, Date date, Boolean harderVariant, String notes) {
+    public Game(List<Model.Player> players, String nemesisName, int graveholdHP, int nemesisHP, Boolean isWon, String reasonForOutcome, Date date, Boolean harderVariant, String notes) {
         Players = players;
         NemesisName = nemesisName;
         GraveholdHP = graveholdHP;
@@ -27,7 +27,7 @@ public class Game {
         this.notes = notes;
     }
 
-    public List<model.Player> getPlayers() {
+    public List<Model.Player> getPlayers() {
         return Players;
     }
 

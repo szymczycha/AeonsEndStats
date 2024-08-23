@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
-import model.Game;
+import Model.Game;
 
 public class GamesListViewAdapter extends BaseAdapter {
     private List<Game> gamesList;

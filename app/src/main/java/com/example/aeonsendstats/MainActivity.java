@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import Adapter.GamesListViewAdapter;
-import model.Game;
-import model.Player;
+import Model.Game;
+import Model.Player;
 
 public class MainActivity extends AppCompatActivity {
     private ListView gamesListLV;

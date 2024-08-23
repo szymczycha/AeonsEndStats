@@ -24,7 +24,7 @@ public class ShowSingleGameActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String jsonString = intent.getStringExtra("game");
         Gson gson = new Gson();
-        model.Game game = gson.fromJson(jsonString, model.Game.class);
+        Model.Game game = gson.fromJson(jsonString, Model.Game.class);
         NemesisNameTV = findViewById(R.id.nemesis_name_tv);
         NemesisHPTV = findViewById(R.id.nemesis_hp_tv);
         GraveholdHPTV = findViewById(R.id.gravehold_hp_tv);
@@ -35,7 +35,7 @@ public class ShowSingleGameActivity extends AppCompatActivity {
             NemesisHPTV.setText(String.valueOf(game.getNemesisHP()));
             GraveholdHPTV.setText(String.valueOf(game.getGraveholdHP()));
             WonTV.setText(game.getWon()?"won":"lost");
-            for (model.Player player:
+            for (Model.Player player:
                  game.getPlayers()) {
                 LinearLayout ll = new LinearLayout(ShowSingleGameActivity.this);
                 ll.setOrientation(LinearLayout.VERTICAL);
