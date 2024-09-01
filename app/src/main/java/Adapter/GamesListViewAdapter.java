@@ -3,6 +3,7 @@ package Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +16,17 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
+import Database.GamesDatabase;
 import Model.Game;
 
 public class GamesListViewAdapter extends BaseAdapter {
     private List<Game> gamesList;
     private LayoutInflater layoutInflater;
     private Context context;
-    public GamesListViewAdapter(List<Game> gamesList, LayoutInflater layoutInflater, Context context){
+    private GamesDatabase gamesDatabase;
+    public GamesListViewAdapter(List<Game> gamesList, LayoutInflater layoutInflater,GamesDatabase gamesDatabase, Context context){
         this.gamesList = gamesList;
+        this.gamesDatabase = gamesDatabase;
         this.context = context;
         this.layoutInflater = layoutInflater;
     }
@@ -60,6 +64,25 @@ public class GamesListViewAdapter extends BaseAdapter {
             String jsonstring = gson.toJson(gamesList.get(position));
             intent.putExtra("game", jsonstring);
             context.startActivity(intent);
+        });
+        convertView.setOnLongClickListener(v -> {
+            Thread deleteThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d("XXX", "position:" + position);
+                    Log.d("XXX", gamesList.toString());
+                    gamesDatabase.getGamesDao().deleteGame(gamesList.get(position));
+                }
+            });
+            deleteThread.start();
+            try {
+                deleteThread.join();
+            } catch (InterruptedException e) {
+                Log.e("XXX", "Something happened while deleting a game") ;
+            }
+            gamesList.remove(position);
+            notifyDataSetChanged();
+            return true;
         });
         return convertView;
     }
