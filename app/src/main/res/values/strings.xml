@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Aeon\'s End stats</string>
+    <string name="games_database_name">GamesDatabase</string>
 </resources>
