@@ -11,12 +11,15 @@
     <ListView
         android:id="@+id/games_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"/>
-    <Button
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/games_add_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="add game"/>
+        android:layout_alignParentEnd="true"
+        android:layout_margin="36dp"
+        android:src="@drawable/ic_add_white" />
 </RelativeLayout>

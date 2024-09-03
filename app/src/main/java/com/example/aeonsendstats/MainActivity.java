@@ -10,6 +10,8 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,7 +23,7 @@ import Model.Player;
 public class MainActivity extends AppCompatActivity {
     private ListView gamesListLV;
     private ArrayList<Game> gamesList;
-    private Button addGameButton;
+    private FloatingActionButton addGameButton;
     private GamesDatabase gamesDatabase;
     private GamesListViewAdapter adapter;
     private Handler handler;
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         gamesListLV = (ListView) findViewById(R.id.games_list);
-        addGameButton = (Button) findViewById(R.id.games_add_button);
+        addGameButton = (FloatingActionButton) findViewById(R.id.games_add_button);
         gamesList = new ArrayList<>();
         gamesDatabase = Room.databaseBuilder(getApplicationContext(), GamesDatabase.class, getString(R.string.games_database_name)).build();
         adapter = new GamesListViewAdapter(
